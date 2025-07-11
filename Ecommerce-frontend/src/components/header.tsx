@@ -1,23 +1,25 @@
 import {Link} from 'react-router-dom';
 import {FaSearch,FaShoppingBag,FaUser,FaSignOutAlt}from "react-icons/fa"
 const user={_id:"ferug",role:"admin"} // add tempory id 
-
+import { useState } from 'react';
 const Header = ()=>{
-    
+    const[isOpen,setIsOpen]=useState<boolean>(false);
+
+
     return (
 
-        <nav>
+        <nav className='header'>
            
-        <Link to ={"/"}>Home</Link>
-        <Link to ={"/search"}><FaSearch/></Link>
-        <Link to ={"/cart"}><FaShoppingBag/></Link>
+        <Link onClick={() => setIsOpen((false))} to ={"/"}>Home</Link>
+        <Link onClick={() => setIsOpen((false))} to ={"/search"}><FaSearch/></Link>
+        <Link onClick={() => setIsOpen((false))} to ={"/cart"}><FaShoppingBag/></Link>
 
         {user?._id?(
             <>
-            <button>
+            <button onClick={() => setIsOpen((prev)=>!prev)}>
                 <FaUser/>
             </button>
-            <dialog>
+            <dialog open={isOpen}>
                 <div>{user.role ==="admin" && (<Link to ="/admin/dashboard">Admin</Link>)}</div>
               
               <Link to ="/orders">Orders</Link>
