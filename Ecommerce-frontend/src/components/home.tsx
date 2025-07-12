@@ -1,6 +1,6 @@
 
 import {Link} from 'react-router-dom';
-import ProductCard from './components/product-Card.tsx';
+import ProductCart from './product-cart';
 const Home = () => {
    return(
       <div className="home">
@@ -11,12 +11,12 @@ const Home = () => {
       </h1>
 
       <main>
-        <ProductCard
+        <ProductCart
         productId="beffferu"
         name="Puma shoes"
         price={496832}
         stock={8348}
-        handler={addToCartHandler}
+        handler={() => console.log("Add to cart")}
         photo="https://m.media-amazon.com/images/I/514T0SvwkHL._SL1500_.jpg"
         />
 

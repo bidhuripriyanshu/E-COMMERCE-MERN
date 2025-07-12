@@ -1,17 +1,28 @@
+import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import AdminSidebar from "../../../components/admin/AdminSidebar";
-import { OrderItem } from "../../../models/types";
-import { server } from "../../../redux/store";
 
 const img =
   "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=804";
+
+interface OrderItem {
+  name: string;
+  photo: string;
+  id: string;
+  _id: string;
+  productId: string;
+  quantity: number;
+  price: number;
+}
 
 const orderItems: OrderItem[] = [
   {
     name: "Puma Shoes",
     photo: img,
     id: "asdsaasdas",
+    _id: "asdsaasdas",
+    productId: "asdsaasdas",
     quantity: 4,
     price: 2000,
   },
@@ -71,7 +82,7 @@ const TransactionManagement = () => {
             <ProductCard
               key={i._id}
               name={i.name}
-              photo={`${server}/${i.photo}`}
+              photo={i.photo}
               productId={i.productId}
               _id={i._id}
               quantity={i.quantity}
@@ -81,7 +92,7 @@ const TransactionManagement = () => {
         </section>
 
         <article className="shipping-info-card">
-          <button className="product-delete-btn" onClick={deleteHandler}>
+          <button className="product-delete-btn">
             <FaTrash />
           </button>
           <h1>Order Info</h1>

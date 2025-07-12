@@ -11,12 +11,12 @@ type ProductsProps={
     handler:()=>void;
 };
 
-const server ="bhjdufffyiebfi";
+
 const ProductCart =({productId,price,name,photo,stock,handler}:ProductsProps)=>{
 
     return(
         <div className="product-card">
-         <img src ={`${server}/${photo}`} alt={name} />
+         <img src={photo} alt={name} />
          <p>{name}</p>
          <span>₹{price}</span>
          

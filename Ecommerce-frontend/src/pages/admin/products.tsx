@@ -44,7 +44,7 @@ const img2 = "https://m.media-amazon.com/images/I/514T0SvwkHL._SL1500_.jpg";
 const arr: Array<DataType> = [
   {
     photo: <img src={img} alt="Shoes" />,
-    name: "Puma Shoes Air Jordan Cook Nigga 2023",
+    name: "Puma Shoes Air Jordan Cook 2023",
     price: 690,
     stock: 3,
     action: <Link to="/admin/product/sajknaskd">Manage</Link>,

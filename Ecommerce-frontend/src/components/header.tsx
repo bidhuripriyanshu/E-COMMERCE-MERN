@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {FaSearch,FaShoppingBag,FaUser,FaSignOutAlt}from "react-icons/fa"
+import {FaSearch,FaShoppingBag,FaUser,FaSignOutAlt,FaSignInAlt}from "react-icons/fa"
 const user={_id:"ferug",role:"admin"} // add tempory id 
 import { useState } from 'react';
 const Header = ()=>{
@@ -12,7 +12,7 @@ const Header = ()=>{
            
         <Link onClick={() => setIsOpen((false))} to ={"/"}>Home</Link>
         <Link onClick={() => setIsOpen((false))} to ={"/search"}><FaSearch/></Link>
-        <Link onClick={() => setIsOpen((false))} to ={"/cart"}><FaShoppingBag/></Link>
+        <Link onClick={() => setIsOpen((false))} to ={"/card"}><FaShoppingBag/></Link>
 
         {user?._id?(
             <>
@@ -27,7 +27,7 @@ const Header = ()=>{
             </dialog>
             </>
         ):(
-            <Link to ={"/login"}>FaSignInAlt</Link>
+            <Link to ={"/login"}><FaSignInAlt/></Link>
         )}
         
         

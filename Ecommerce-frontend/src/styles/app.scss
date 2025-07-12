@@ -63,7 +63,7 @@ dialog{
   padding:10px;
   width: 100px;
   position: relative;
-  left:calc(100%-100px);
+  left: calc(100% - 100px);
   > div{
       @include flex(column,flex-start,center,0.25rem);
   }

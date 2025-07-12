@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { lazy ,Suspense} from 'react'
+import { lazy, Suspense } from 'react'
 const Home = lazy(() => import('./pages/home.tsx'))
 const Card = lazy(() => import('./pages/card.tsx'))
 const Search = lazy(() => import('./pages/search.tsx'))
-import Loader from './components/loader.tsx'
-const Header = lazy(()=> import('./components/header.tsx'));
+import Loading from './components/loader.tsx'
+// const Header = lazy(() => import('./components/header.tsx'));
 
 // Admin routes importing lazy components
 const Dashboard = lazy(() => import("./pages/admin/dashboard"));
@@ -25,53 +25,39 @@ const TransactionManagement = lazy(
   () => import("./pages/admin/management/transactionmanagement")
 );
 
+
+
+
 const App = () => {
   return (
-    <Router> 
+    <Router>
       {/* using lazy loading to load the components */}
-    <Suspense fallback={<Loader/>}>
-
-    <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/card" element={<Card />} />
-        <Route path="/search" element={<Search />} />
-    </Routes>
-   
- {/* Admin routes */}
- 
-<Route
-  // element={
-  //   <ProtectedRoute isAuthenticated={true} adminRoute={true} isAdmin={true} />
-  // }
->
-  <Route path="/admin/dashboard" element={<Dashboard />} />
-  <Route path="/admin/product" element={<Products />} />
-  <Route path="/admin/customer" element={<Customers />} />
-  <Route path="/admin/transaction" element={<Transaction />} />
-  
-  {/* Charts */}
-  <Route path="/admin/chart/bar" element={<Barcharts />} />
-  <Route path="/admin/chart/pie" element={<Piecharts />} />
-  <Route path="/admin/chart/line" element={<Linecharts />} />
- 
- 
- {/* Apps */}
-  <Route path="/admin/app/coupon" element={<Coupon />} />
-  <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
-  <Route path="/admin/app/toss" element={<Toss />} />
-
- 
-  {/* Management */}
-  <Route path="/admin/product/new" element={<NewProduct />} />
-
-  <Route path="/admin/product/:id" element={<ProductManagement />} />
-
-  <Route path="/admin/transaction/:id" element={<TransactionManagement />} />
-</Route>;
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/card" element={<Card />} />
+          <Route path="/search" element={<Search />} />
 
 
-    </Suspense>
-
+          {/* Admin routes */}
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/product" element={<Products />} />
+          <Route path="/admin/customer" element={<Customers />} />
+          <Route path="/admin/transaction" element={<Transaction />} />
+          {/* Charts */}
+          <Route path="/admin/chart/bar" element={<Barcharts />} />
+          <Route path="/admin/chart/pie" element={<Piecharts />} />
+          <Route path="/admin/chart/line" element={<Linecharts />} />
+          {/* Apps */}
+          <Route path="/admin/app/coupon" element={<Coupon />} />
+          <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
+          <Route path="/admin/app/toss" element={<Toss />} />
+          {/* Management */}
+          <Route path="/admin/product/new" element={<NewProduct />} />
+          <Route path="/admin/product/:id" element={<ProductManagement />} />
+          <Route path="/admin/transaction/:id" element={<TransactionManagement />} />
+        </Routes>
+      </Suspense>
     </Router>
   )
 }
