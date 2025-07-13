@@ -1,3 +1,12 @@
+@use "home.scss";
+@use "admin-styles/mixin" as mixin;
+@use "admin-styles/dashboard";
+@use "admin-styles/products";
+@use "admin-styles/chart";
+@use "admin-styles/dashboardapp";
+@use "admin-styles/mediaquery";
+
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -24,25 +33,20 @@
   .green {
     color: rgb(0, 195, 0);
   }
-  @import "home";
-  @import "admin-styles/mixin";
-  @import "admin-styles/dashboard";
-  @import "admin-styles/products";
-  @import "admin-styles/chart";
-  @import "admin-styles/dashboardapp";
-  @import "admin-styles/mediaquery";
+  
+ 
   
 
 .header{
-  @include flex(row, flex-end,stretch,1.2rem);
+  @include mixin.flex(row, flex-end,stretch,1.2rem);
   
   a{
-    color:$color2;
+    color: mixin.$color2;
     letter-spacing: 2px;
     font-size: 1.2rem;
 
     &:hover{
-      color:$color3;
+      color: mixin.$color3;
     }
   } 
 
@@ -53,7 +57,7 @@ button{
     cursor:pointer;
     background-color: transparent;
     &:hover{
-      color:$color3;
+      color: mixin.$color3;
   }
 }
 
@@ -65,14 +69,14 @@ dialog{
   position: relative;
   left: calc(100% - 100px);
   > div{
-      @include flex(column,flex-start,center,0.25rem);
+      @include mixin.flex(column,flex-start,center,0.25rem);
   }
 }
 }
 
 
   .admin-container {
-    @include grid(1fr 4fr, 2rem);
+    @include mixin.grid(1fr 4fr, 2rem);
     height: 100vh;
     background-color: rgb(247, 247, 247);
     > aside {
@@ -88,19 +92,19 @@ dialog{
       > div {
         margin: 2rem 1rem;
         > h5 {
-          @include heading(2px);
+          @include mixin.heading(2px);
           opacity: 0.8;
           margin: 1rem 0;
         }
         > ul {
-          @include flex(column, unset, unset, 0.5rem);
+          @include mixin.flex(column, unset, unset, 0.5rem);
           list-style: none;
           > li {
             padding: 0.5rem 1rem;
             border-radius: 10px;
             a {
               color: rgba(0, 0, 0, 0.825);
-              @include flex(row, unset);
+              @include mixin.flex(row, unset);
             }
           }
         }
@@ -173,7 +177,7 @@ dialog{
   }
   
   .table-pagination {
-    @include flex;
+    @include mixin.flex;
     padding: 2rem;
     > button {
       padding: 0.5rem 1rem;
@@ -193,7 +197,7 @@ dialog{
   #hamburger {
     display: grid;
     place-items: center;
-    @include square(3rem);
+    @include mixin.square(3rem);
     border: none;
     outline: none;
     cursor: pointer;
@@ -223,9 +227,9 @@ dialog{
   .loader {
     width: 100%;
     height: 100vh;
-    @include flex;
+    @include mixin.flex;
     > div {
-      @include square(10rem);
+      @include mixin.square(10rem);
       border-radius: 50%;
       border-top: 1rem solid rgb(43, 43, 43);
       border-left: 1rem solid rgb(43, 43, 43);

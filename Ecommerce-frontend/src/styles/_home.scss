@@ -1,4 +1,5 @@
-@import "admin-styles/mixin";
+@use "admin-styles/mixin" as mixin;
+
 .home {
   padding: 2rem 5%;
   display: flex;
@@ -9,7 +10,7 @@
   width: 100%;
 
   > section {
-    display: none;
+    display: block;
     width: 100%;
     height: 20rem;
     margin: auto;
@@ -17,31 +18,31 @@
   }
 
   > div {
-    @include flex;
+    @include mixin.flex;
     align-items: stretch;
     margin: 2rem 0;
     gap: 5rem;
 
     aside {
       width: 10%;
-      // border: 1px solid $color3;
+      // border: 1px solid mixin.$color3;
       flex: none;
       h1 {
-        @include heading(1px);
+        @include mixin.heading(1px);
         margin-bottom: 3rem;
-        @include flex(row, space-between, center);
+        @include mixin.flex(row, space-between, center);
         &::before {
           content: "";
           width: 3px;
           height: 2rem;
-          background-color: $color3;
+          background-color: mixin.$color3;
           position: absolute;
           transform: translateX(-1rem);
         }
       }
 
       > ul {
-        @include flex(column, flex-start, flex-start);
+        @include mixin.flex(column, flex-start, flex-start);
         list-style: none;
         > li {
           cursor: pointer;
@@ -58,9 +59,9 @@
 
 
   > h1 {
-    @include heading(1px);
+    @include mixin.heading(1px);
     margin-top: 3rem;
-    @include flex(row, space-between, center);
+    @include mixin.flex(row, space-between, center);
   }
 
   .findmore {
@@ -87,7 +88,7 @@
   height: 25rem;
   padding: 1rem;
   flex: none;
-  @include flex(column, flex-start, center, 4px);
+  @include mixin.flex(column, flex-start, center, 4px);
   position: relative;
   background-color: white;
 
@@ -96,7 +97,7 @@
   }
 
   img {
-    @include square(calc(18.75rem - 3rem));
+    @include mixin.square(calc(18.75rem - 3rem));
     object-fit: cover;
     margin: 1rem;
   }
@@ -109,20 +110,20 @@
   > div {
     opacity: 0;
     position: absolute;
-    @include square(100%);
+    @include mixin.square(100%);
     top: 0;
     left: 0;
     background-color: #0000006b;
-    @include flex;
+    @include mixin.flex;
     button,
     a {
-      @include flex;
-      @include square(3rem);
+      @include mixin.flex;
+      @include mixin.square(3rem);
       border-radius: 100%;
       border: none;
-      background-color: $color3;
+      background-color: mixin.$color3;
       cursor: pointer;
-      color: $color1;
+      color: mixin.$color1;
       font-size: 1.1rem;
       transition: all 0.3s;
       &:hover {

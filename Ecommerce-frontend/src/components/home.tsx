@@ -1,6 +1,6 @@
 
 import {Link} from 'react-router-dom';
-import ProductCart from './product-cart';
+import ProductCart from './product-card';
 const Home = () => {
    return(
       <div className="home">
