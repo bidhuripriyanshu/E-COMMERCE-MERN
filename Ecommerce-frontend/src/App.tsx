@@ -1,8 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 const Home = lazy(() => import('./pages/home.tsx'))
-const Card = lazy(() => import('./pages/card.tsx'))
+const Card = lazy(() => import('./pages/cart.tsx'))
 const Search = lazy(() => import('./pages/search.tsx'))
+const Shipping = lazy(() => import('./pages/shipping.tsx'))
+const Login = lazy(() => import('./pages/login.tsx'))
+
+
 import Loading from './components/loader.tsx'
 // const Header = lazy(() => import('./components/header.tsx'));
 
@@ -37,7 +41,17 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/card" element={<Card />} />
           <Route path="/search" element={<Search />} />
+          
+    {/* Not Logged In  Route*/}
+      <Route path="/login" element={<Login />} />
 
+        
+          {/* Logged In user Routes */}
+
+          <Route>
+            <Route path="/shipping" element={<Shipping />} />
+
+          </Route>
 
           {/* Admin routes */}
           <Route path="/admin/dashboard" element={<Dashboard />} />

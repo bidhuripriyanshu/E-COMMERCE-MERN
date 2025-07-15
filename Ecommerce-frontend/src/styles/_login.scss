@@ -1,0 +1,54 @@
+@use './admin-styles/mixin' as mixin;
+.login {
+    height: 90vh;
+    @include mixin.flex(column);
+  
+    > main {
+      width: 100%;
+      height: 80%;
+      max-width: 400px;
+      padding: 2rem;
+      @include mixin.baseShadow;
+      @include mixin.flex(column, center, stretch);
+      > div {
+        width: 100%;
+        @include mixin.flex(column, flex-start, stretch, 0.2rem);
+        > input,
+        > select {
+          @include mixin.inputStyle;
+          border: 1px solid rgba(162, 162, 162, 0.53);
+          border-radius: 5px;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+  
+        > p {
+          text-align: center;
+          margin: 2rem;
+        }
+  
+        button {
+          width: 70%;
+          margin: auto;
+          height: 3rem;
+          // @include btn(unset, rgb(62, 125, 242), white); // Commented out because btn mixin is not defined
+          background-color: rgb(62, 125, 242);
+          color: white;
+          padding: 1rem;
+          border: 1px solid rgb(62, 125, 242);
+          border-radius: 5px;
+          font-size: 1.05rem;
+          @include mixin.flex;
+          > svg {
+            background-color: white;
+            width: 30%;
+            height: 100%;
+          }
+  
+          > span {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
