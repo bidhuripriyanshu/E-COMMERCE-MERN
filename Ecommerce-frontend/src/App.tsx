@@ -5,6 +5,8 @@ const Card = lazy(() => import('./pages/cart.tsx'))
 const Search = lazy(() => import('./pages/search.tsx'))
 const Shipping = lazy(() => import('./pages/shipping.tsx'))
 const Login = lazy(() => import('./pages/login.tsx'))
+const Orders = lazy(() => import('./pages/orders.tsx'))
+const OrderDetails = lazy(() => import('./pages/order-details.tsx'))
 
 
 import Loading from './components/loader.tsx'
@@ -50,6 +52,8 @@ const App = () => {
 
           <Route>
             <Route path="/shipping" element={<Shipping />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/order/:id" element={<OrderDetails />} />
 
           </Route>
 

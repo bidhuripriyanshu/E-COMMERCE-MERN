@@ -11,6 +11,25 @@
 @use "admin-styles/mediaquery";
 
 
+.container {
+  max-width: 1367px;
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  > h1 {
+    @include mixin.heading;
+    margin: 1rem 0;
+    text-align: left;
+  }
+}
+
+
+
+
+
+
+
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;

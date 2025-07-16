@@ -2,6 +2,10 @@ import {Link} from 'react-router-dom';
 import {FaSearch,FaShoppingBag,FaUser,FaSignOutAlt,FaSignInAlt}from "react-icons/fa"
 const user={_id:"ferug",role:"admin"} // add tempory id 
 import { useState } from 'react';
+
+
+
+
 const Header = ()=>{
     const[isOpen,setIsOpen]=useState<boolean>(false);
 
