@@ -1,3 +1,5 @@
+
+@use './admin-styles/mixin' as *;
 .product-search-page {
     padding: 2rem;
     @include flex(row, flex-start, stretch, 2rem);

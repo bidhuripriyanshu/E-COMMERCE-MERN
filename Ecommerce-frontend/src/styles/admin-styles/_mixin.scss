@@ -51,3 +51,15 @@ $color3: #0073ff;
 @mixin baseShadow() {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.384);
 }
+
+@mixin btn($padding: 0.5rem 1rem, $bg: #333, $color: #fff) {
+  padding: $padding;
+  background: $bg;
+  color: $color;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: #222; // or any color you want
+  }
+}
