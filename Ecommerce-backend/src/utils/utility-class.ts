@@ -4,3 +4,5 @@ class ErrorHnadler extends Error{
      this.statusCode=statusCode
   }    
 }
+
+export default ErrorHnadler
