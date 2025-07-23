@@ -20,6 +20,7 @@ export const errorMiddleware =(
   }
   
 
+  
   export const TryCatch =
   (func: ControllerType) =>
   (req: Request, res: Response, next: NextFunction) => {
