@@ -3,7 +3,7 @@ const app = express();
 const port = 4000;
 import { connectDB } from './utils/features.js';
 import { errorMiddleware } from "./middlewares/error.js";
-
+import NodeCache from "node-cache"; 'node-cache';
 
 app.use(express.json());
 app.use("/uploads",express.static("uploads"));
@@ -13,7 +13,7 @@ import userRoute from "./routes/user.js"
 import productRoute from './routes/product.js'
 
 
-
+export const myCache= new NodeCache();
 connectDB();
 
 
