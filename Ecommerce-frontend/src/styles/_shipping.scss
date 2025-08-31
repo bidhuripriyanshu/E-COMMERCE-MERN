@@ -1,8 +1,12 @@
 @use './admin-styles/mixin' as mixin;
 
 .shipping {
-    @include mixin.flex;
-  
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     .back-btn {
       @include mixin.square(2.5rem);
       background-color: mixin.$color2;
@@ -16,49 +20,63 @@
       outline: none;
       cursor: pointer;
       @include mixin.baseShadow;
-  
+      z-index: 2;
       svg {
         transition: all 0.3s;
       }
-  
       &:hover svg {
         translate: -0.25rem;
       }
     }
-  
+
     > form {
+      background: white;
       max-width: 450px;
       width: 100%;
       @include mixin.flex(column, center, stretch, 2rem);
-      padding: 2rem;
-  
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      margin: 2rem 0;
+
       > h1 {
         @include mixin.heading(2px);
-        margin: 2rem;
+        margin: 1rem 0 2rem 0;
         text-align: center;
+        color: #2d3748;
       }
       > input,
       > select {
-        border: 1px solid rgba(31, 31, 31, 0.351);
+        border: 1px solid rgba(31, 31, 31, 0.15);
         padding: 1rem;
         outline: none;
         font-size: 1.05rem;
-        border-radius: 5px;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        background: #f7fafc;
+        transition: border 0.2s, box-shadow 0.2s;
+        &:focus {
+          border: 1.5px solid #667eea;
+          box-shadow: 0 0 0 2px #667eea33;
+        }
       }
-  
       > button {
-        // @include btn(1rem, mixin.$color3, mixin.$color1); // Commented out because btn mixin is not defined
-        border-radius: 5px;
+        border-radius: 8px;
         font-size: 1.05rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        background-color: mixin.$color3;
-        color: mixin.$color1;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
         padding: 1rem;
         border: none;
         cursor: pointer;
+        font-weight: 600;
+        box-shadow: 0 4px 16px rgba(102,126,234,0.10);
+        transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
         &:hover {
-          opacity: 0.8;
+          opacity: 0.92;
+          transform: translateY(-2px) scale(1.03);
+          box-shadow: 0 8px 24px rgba(102,126,234,0.15);
         }
       }
     }

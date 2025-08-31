@@ -3,10 +3,20 @@ const app = express();
 const port = 4000;
 import { connectDB } from './utils/features.js';
 import { errorMiddleware } from "./middlewares/error.js";
+
+
+//cache
 import NodeCache from "node-cache"; 'node-cache';
+
+
+
 
 app.use(express.json());
 app.use("/uploads",express.static("uploads"));
+
+
+
+
 
 // importing routes
 import userRoute from "./routes/user.js"
@@ -14,12 +24,13 @@ import productRoute from './routes/product.js'
 
 
 export const myCache= new NodeCache();
-connectDB();
 
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("API Working with /api/v1")
 })
+
 
 
 // using Routes

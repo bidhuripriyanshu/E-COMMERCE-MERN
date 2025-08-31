@@ -1,54 +1,102 @@
-@use './admin-styles/mixin' as mixin;
-.login {
-    height: 90vh;
-    @include mixin.flex(column);
-  
-    > main {
-      width: 100%;
-      height: 80%;
-      max-width: 400px;
-      padding: 2rem;
-      @include mixin.baseShadow;
-      @include mixin.flex(column, center, stretch);
-      > div {
-        width: 100%;
-        @include mixin.flex(column, flex-start, stretch, 0.2rem);
-        > input,
-        > select {
-          @include mixin.inputStyle;
-          border: 1px solid rgba(162, 162, 162, 0.53);
-          border-radius: 5px;
-          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        }
-  
-        > p {
-          text-align: center;
-          margin: 2rem;
-        }
-  
-        button {
-          width: 70%;
-          margin: auto;
-          height: 3rem;
-          // @include btn(unset, rgb(62, 125, 242), white); // Commented out because btn mixin is not defined
-          background-color: rgb(62, 125, 242);
-          color: white;
-          padding: 1rem;
-          border: 1px solid rgb(62, 125, 242);
-          border-radius: 5px;
-          font-size: 1.05rem;
-          @include mixin.flex;
-          > svg {
-            background-color: white;
-            width: 30%;
-            height: 100%;
-          }
-  
-          > span {
-            width: 100%;
-            text-align: center;
-          }
-        }
-      }
+@use './admin-styles/mixin' as *;
+
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 70px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  padding: 2.5rem 2rem 2rem 2rem;
+  min-width: 340px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.login-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.login-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #667eea;
+  }
+  select, input[type="date"] {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 1rem;
+    background: #f7fafc;
+    color: #2d3748;
+    transition: border-color 0.3s;
+    outline: none;
+    &:focus {
+      border-color: #667eea;
     }
   }
+}
+
+.login-divider {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  line-height: 0.1em;
+  margin: 1.5rem 0 1rem 0;
+  span {
+    background: #fff;
+    color: #718096;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.google-login-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: #fff;
+  color: #2d3748;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.07);
+  transition: all 0.3s;
+  &:hover {
+    background: #f7fafc;
+    border-color: #667eea;
+    color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.10);
+  }
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    min-width: 90vw;
+    padding: 1.5rem 0.5rem;
+  }
+}

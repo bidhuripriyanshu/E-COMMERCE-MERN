@@ -1,40 +1,53 @@
-import {useState} from 'react';
-import {FcGoogle} from  'react-icons/fc'
-const Login =()=>{
-    const [gender, setGender] = useState("");
-    const [date, setDate] = useState("");
-  
-   return(
-    <div className="login">
-    <main>
-      <h1 className="heading">Login</h1>
+import { useState } from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import Header from '../components/header';
 
-      <div>
-        <label>Gender</label>
-        <select value={gender} onChange={(e) => setGender(e.target.value)}>
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
+const Login = () => {
+  const [gender, setGender] = useState("");
+  const [date, setDate] = useState("");
 
-      <div>
-        <label>Date of birth</label>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </div>
+  return (
+    <>
+      <Header />
+      <div className="login-page">
+        <main className="login-card">
+          <h1 className="login-heading">Sign In</h1>
 
-      <div>
-        <p>Already Signed In Once</p>
-        <button >
-          <FcGoogle /> <span>Sign in with Google</span>
-        </button>
+          <div className="login-field">
+            <label htmlFor="gender">Gender</label>
+            <select
+              id="gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div className="login-field">
+            <label htmlFor="dob">Date of Birth</label>
+            <input
+              id="dob"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+
+          <div className="login-divider">
+            <span>or</span>
+          </div>
+
+          <button className="google-login-btn">
+            <FcGoogle size={22} /> <span>Sign in with Google</span>
+          </button>
+        </main>
       </div>
-    </main>
-  </div>
-   )}
+    </>
+  );
+};
 
 export default Login;   

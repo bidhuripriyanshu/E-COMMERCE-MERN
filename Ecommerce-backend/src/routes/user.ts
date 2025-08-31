@@ -6,13 +6,20 @@ import { adminOnly } from "../middlewares/auth.js";
 
 
 
+
 // importing Routes
 // route -/api/v1/user/new
 app.post("/new",newUser);
 
 
+
+
+
+
 //Route-/api/v1/user/all
 app.get("/all",adminOnly,getAllUsers)
+
+
 
 
 //Routes -/api/v1/users/dynamicID
